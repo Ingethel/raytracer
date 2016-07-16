@@ -2,7 +2,7 @@
 
 #include "Ray.h"
 #include <vector>
-
+#include <iostream>
 /*
  * Material class
  * keeps material properties
@@ -52,7 +52,7 @@ protected:
 class Sphere : public Object {
 public:
 	Sphere(glm::vec3 center, float radius, const Material &material);
-	virtual bool Intersect(const Ray &ray, IntersectInfo &info, float MAX) const;
+	bool Intersect(const Ray &ray, IntersectInfo &info, float MAX) const;
 };
 
 /*
@@ -62,7 +62,7 @@ public:
 class Plane : public Object {
 public:
 	Plane(glm::vec3 v1, glm::vec3 v2, glm::vec3 v3, glm::vec3 v4, const Material &material);
-	virtual bool Intersect(const Ray &ray, IntersectInfo &info, float MAX) const;
+	bool Intersect(const Ray &ray, IntersectInfo &info, float MAX) const;
 private:
 	std::vector<glm::vec3> vertices;
 	glm::vec3 normal;
@@ -75,7 +75,7 @@ private:
 class Triangle : public Object {
 public:
 	Triangle(glm::vec3 v1, glm::vec3 v2, glm::vec3 v3, const Material &material);
-	virtual bool Intersect(const Ray &ray, IntersectInfo &info, float MAX) const;
+	bool Intersect(const Ray &ray, IntersectInfo &info, float MAX) const;
 private:
 	std::vector<glm::vec3> vertices;
 	glm::vec3 normal;

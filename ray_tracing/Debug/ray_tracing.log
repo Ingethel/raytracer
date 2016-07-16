@@ -1,16 +1,23 @@
-﻿Build started 6/21/2016 6:52:00 PM.
-     1>Project "C:\Users\stavros\Documents\Visual Studio 2013\Projects\ray_tracing\ray_tracing\ray_tracing.vcxproj" on node 2 (Build target(s)).
+﻿Build started 7/17/2016 1:08:38 AM.
+     1>Project "C:\Users\stavros\Documents\GitHub\raytracer\ray_tracing\ray_tracing.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\stavros\Documents\Visual Studio 2013\freeglut\include" /I"C:\Users\stavros\Documents\Visual Studio 2013\glew-1.11.0\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Object.cpp
-         Skipping... (no relevant changes detected)
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\stavros\Documents\Visual Studio 2013\freeglut\include" /I"C:\Users\stavros\Documents\Visual Studio 2013\glew-1.11.0\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Light.cpp Object.cpp RayTracer.cpp
+         RayTracer.cpp
+     1>c:\users\stavros\documents\github\raytracer\ray_tracing\raytracer.cpp(25): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\stavros\documents\github\raytracer\ray_tracing\raytracer.cpp(39): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\stavros\documents\github\raytracer\ray_tracing\raytracer.cpp(180): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\users\stavros\documents\github\raytracer\ray_tracing\raytracer.cpp(293): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
          Object.cpp
+     1>c:\users\stavros\documents\github\raytracer\ray_tracing\object.cpp(103): warning C4305: '+=' : truncation from 'double' to 'float'
+         Light.cpp
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\stavros\Documents\Visual Studio 2013\Projects\ray_tracing\Debug\ray_tracing.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\stavros\Documents\Visual Studio 2013\freeglut\lib" /LIBPATH:"C:\Users\stavros\Documents\Visual Studio 2013\glew-1.11.0\lib" glew32.lib freeglut.lib pthreadVC2.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\stavros\Documents\Visual Studio 2013\Projects\ray_tracing\Debug\ray_tracing.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\stavros\Documents\Visual Studio 2013\Projects\ray_tracing\Debug\ray_tracing.lib" /MACHINE:X86 Debug\Light.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\stavros\Documents\GitHub\raytracer\Debug\ray_tracing.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\stavros\Documents\Visual Studio 2013\freeglut\lib" /LIBPATH:"C:\Users\stavros\Documents\Visual Studio 2013\glew-1.11.0\lib" glew32.lib freeglut.lib pthreadVC2.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\stavros\Documents\GitHub\raytracer\Debug\ray_tracing.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\stavros\Documents\GitHub\raytracer\Debug\ray_tracing.lib" /MACHINE:X86 Debug\Light.obj
          Debug\Object.obj
          Debug\RayTracer.obj
-         ray_tracing.vcxproj -> C:\Users\stavros\Documents\Visual Studio 2013\Projects\ray_tracing\Debug\ray_tracing.exe
-     1>Done Building Project "C:\Users\stavros\Documents\Visual Studio 2013\Projects\ray_tracing\ray_tracing\ray_tracing.vcxproj" (Build target(s)).
+         ray_tracing.vcxproj -> C:\Users\stavros\Documents\GitHub\raytracer\Debug\ray_tracing.exe
+     1>Done Building Project "C:\Users\stavros\Documents\GitHub\raytracer\ray_tracing\ray_tracing.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.68
+Time Elapsed 00:00:02.06

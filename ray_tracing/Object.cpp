@@ -30,8 +30,9 @@ float TriangleArea(glm::vec3 p1, glm::vec3 p2, glm::vec3 p3)
  * Check if a point is inside a given triangle by comparing subsequent areas
  */
 bool checkPointInArea(glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, glm::vec3 p){
-	float area_diff = abs(TriangleArea(p1, p2, p3) - (TriangleArea(p1, p2, p) + TriangleArea(p1, p, p3) + TriangleArea(p, p2, p3)));
-	if (area_diff > 0.05f)
+	float area = TriangleArea(p1, p2, p3);
+	float area_diff = abs(area - (TriangleArea(p1, p2, p) + TriangleArea(p1, p, p3) + TriangleArea(p, p2, p3)));
+	if (area_diff > area * 0.01)
 		return false;
 	return true;
 }
@@ -51,14 +52,8 @@ Material::Material():
  * Material constructor with defined properties
  */
 Material::Material(glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular, float glossiness, float reflection, float refraction):
-    ambient(ambient),
-    diffuse(diffuse),
-    specular(specular)
-{
-	this->glossiness = glossiness;
-	this->reflection = reflection;
-	this->refraction = refraction;
-}
+    ambient(ambient), diffuse(diffuse), specular(specular),	glossiness(glossiness),
+	reflection(reflection),	refraction(refraction){}
 
 /*
  * Object constructor
@@ -73,7 +68,7 @@ Object::Object(const Material &material):
  * Subclass
  */
 Sphere::Sphere(glm::vec3 center, float radius, const Material &material):
-	Object(material)
+Object(material)
 {
 	this->centroid = center;
 	this->radius = radius;
@@ -97,10 +92,7 @@ Object(material)
 	glm::vec3 v = vertices[2] - vertices[0];
 
 	// normal
-	normal.x = (u.y * v.z) - (u.z * v.y);
-	normal.y = (u.z * v.x) - (u.x * v.z);
-	normal.z = (u.x * v.y) - (u.y * v.x);
-	
+	normal = glm::cross(u, v);
 	normal = glm::normalize(normal);
 
 	// longer valid distance between two points of plane
@@ -130,19 +122,16 @@ Object(material)
 	glm::vec3 v = vertices[2] - vertices[0];
 
 	// normal
-	normal.x = (u.y * v.z) - (u.z * v.y);
-	normal.y = (u.z * v.x) - (u.x * v.z);
-	normal.z = (u.x * v.y) - (u.y * v.x);
-
+	normal = glm::cross(u, v);
 	normal = glm::normalize(normal);
 
 	// longer side of triangle
 	float a,b,c;
-	a = glm::length(vertices[1]-vertices[0]);
-	b = glm::length(vertices[2]-vertices[1]);
-	c = glm::length(vertices[2]-vertices[0]);
-	radius = fmax(a,b,c) / 1.5f;
 	centroid = (vertices[0] + vertices[1] + vertices[2]) / 3.f;
+	a = glm::length(vertices[0] - centroid);
+	b = glm::length(vertices[1] - centroid);
+	c = glm::length(vertices[2] - centroid);
+	radius = fmax(a, b, c);
 }
 
 /*
